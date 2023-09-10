@@ -114,7 +114,7 @@ export PATH="`echo $PATH | sed 's/\(:.\|:\)*:/:/g;s/^.\?://;s/:.\?$//'`"
 
 generated_config=
 if [ "$build_dir_setup_enabled" = "true" ]; then
-    cp $CWD/sources/demo/meta-demo-01/conf//bblayers.con  conf/
+    cp $CWD/sources/demo/meta-demo-02/conf/bblayers.conf  conf/
 
     mv conf/local.conf conf/local.conf.sample
 
