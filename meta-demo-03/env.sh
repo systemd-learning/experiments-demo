@@ -17,7 +17,7 @@ Usage:                                                   source $PROGNAME <build
 Examples:
 
 - To create a new Yocto build directory:
-  $ MACHINE=qemuarm64 DISTRO=poky DL_DIR=/mnt/downloads source $PROGNAME build
+  $ MACHINE=qemuarm64 DISTRO=poky source $PROGNAME build
 
 - To use an existing Yocto build directory:
   $ source $PROGNAME build
@@ -130,6 +130,7 @@ if [ "$build_dir_setup_enabled" = "true" ]; then
 DL_DIR ?= "${DL_DIR}"
 TCMODE = "external-arm"
 EXTERNAL_TOOLCHAIN="${DL_DIR}/${TC_NAME}"
+
 PREFERRED_PROVIDER_virtual/kernel = "linux-kernel"
 EOF
 
