@@ -134,11 +134,11 @@ EXTERNAL_TOOLCHAIN="${DL_DIR}/${TC_NAME}"
 PREFERRED_PROVIDER_virtual/kernel = "linux-kernel"
 
 DISTRO_FEATURES:remove = " sysvinit 3g bluetooth irda nfc zeroconf x11 xorg wayland"
+DISTRO_FEATURES:remove = "ptest"
 DISTRO_FEATURES:append = " systemd"
 DISTRO_FEATURES_BACKFILL_CONSIDERED += "sysvinit"
 VIRTUAL-RUNTIME_init_manager = "systemd"
 VIRTUAL-RUNTIME_initscripts = "systemd-compat-units"
-
 
 EOF
 

@@ -115,6 +115,7 @@ if [ "$build_dir_setup_enabled" = "true" ]; then
 
     cat >> conf/local.conf <<EOF
 DL_DIR ?= "${DL_DIR}"
+DISTRO_FEATURES:remove = "ptest"
 EOF
 
     generated_config=1

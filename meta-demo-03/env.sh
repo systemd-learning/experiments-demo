@@ -131,6 +131,7 @@ DL_DIR ?= "${DL_DIR}"
 TCMODE = "external-arm"
 EXTERNAL_TOOLCHAIN="${DL_DIR}/${TC_NAME}"
 
+DISTRO_FEATURES:remove = "ptest"
 PREFERRED_PROVIDER_virtual/kernel = "linux-kernel"
 EOF
 

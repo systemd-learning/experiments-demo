@@ -130,6 +130,8 @@ if [ "$build_dir_setup_enabled" = "true" ]; then
 DL_DIR ?= "${DL_DIR}"
 TCMODE = "external-arm"
 EXTERNAL_TOOLCHAIN="${DL_DIR}/${TC_NAME}"
+
+DISTRO_FEATURES:remove = "ptest"
 EOF
 
     generated_config=1
