@@ -1,0 +1,13 @@
+diff --git a/src/core/manager.c b/src/core/manager.c
+index 34891a8754..ac1444e56d 100644
+--- a/src/core/manager.c
++++ b/src/core/manager.c
+@@ -4518,7 +4518,8 @@ void manager_status_printf(Manager *m, StatusType type, const char *status, cons
+                 return;
+
+         va_start(ap, format);
+-        status_vprintf(status, SHOW_STATUS_ELLIPSIZE|(type == STATUS_TYPE_EPHEMERAL ? SHOW_STATUS_EPHEMERAL : 0), format, ap);
++        //status_vprintf(status, SHOW_STATUS_ELLIPSIZE|(type == STATUS_TYPE_EPHEMERAL ? SHOW_STATUS_EPHEMERAL : 0), format, ap);
++        status_vprintf(status, type == STATUS_TYPE_EPHEMERAL ? SHOW_STATUS_EPHEMERAL : 0, format, ap);
+         va_end(ap);
+ }

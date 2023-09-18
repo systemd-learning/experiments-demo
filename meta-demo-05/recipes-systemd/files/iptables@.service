@@ -1,0 +1,7 @@
+[Unit]  
+Description=iptables 
+After=network.target  
+   
+[Service]  
+Type=simple 
+ExecStart=sudo /usr/sbin/iptables-restore < /etc/iptables/iptables.rules
