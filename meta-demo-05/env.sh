@@ -17,7 +17,7 @@ Usage:                                                   source $PROGNAME <build
 Examples:
 
 - To create a new Yocto build directory:
-  $ MACHINE=soc-demo-01 DISTRO=distro-demo-01 source $PROGNAME build
+  $ MACHINE=qemuarm64 DISTRO=poky source $PROGNAME build
 
 - To use an existing Yocto build directory:
   $ source $PROGNAME build
