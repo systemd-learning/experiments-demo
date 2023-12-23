@@ -88,17 +88,16 @@ if [ -e $PWD/sources/oe-core ]; then
     OEROOT=$PWD/sources/oe-core
 fi
 
-TC_URL=https://developer.arm.com/-/media/Files/downloads/gnu-a/9.2-2019.12/binrel/
-TC_NAME=gcc-arm-9.2-2019.12-x86_64-aarch64-none-linux-gnu
-TC_SUFFIX=.tar.xz
+TC_URL=https://developer.arm.com/-/media/Files/downloads/gnu/13.2.rel1/binrel/arm-gnu-toolchain-13.2.rel1-x86_64-aarch64_be-none-linux-gnu.tar.xz
+TC_TAR=gcc-arm-9.2-2019.12-x86_64-aarch64-none-linux-gnu.tar.xz
+TC_NAME=arm-gnu-toolchain-13.2.Rel1-x86_64-aarch64-none-linux-gnu
 
 if [ ! -e $DL_DIR/$TC_NAME ]; then
-    if [ ! -f $DL_DIR/$TC_NAME ]; then
-        wget $TC_URL/${TC_NAME}${TC_SUFFIX} -O- > $DL_DIR/${TC_NAME}${TC_SUFFIX}
-    else
-        mkdir -p $DL_DIR/$TC_NAME
-        tar -xf $DL_DIR/${TC_NAME}${TC_SUFFIX} --strip-components=1  -C $DL_DIR/$TC_NAME
-    fi
+   if [ ! -f $DL_DIR/$TC_TAR ]; then
+       wget $TC_URL -O- > $DL_DIR/${TC_TAR}
+   fi
+   mkdir -p $DL_DIR/$TC_NAME
+   tar -xf $DL_DIR/${TC_TAR} --strip-components=1  -C $DL_DIR/$TC_NAME
 fi
 
 . $OEROOT/oe-init-build-env $CWD/$1 > /dev/null
