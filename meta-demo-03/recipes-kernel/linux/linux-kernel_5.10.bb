@@ -38,6 +38,15 @@ do_shared_workdir:append () {
     ln -sf ${S} ${STAGING_KERNEL_DIR}
 }
 
+python do_unpack:append() {
+    import os
+    curr = os.getcwd()
+    os.chdir(d.getVar('S'))
+    os.system("git am rt-patches/*.patch")
+    os.system("git am android-patches/*.patch")
+    os.chdir(curr)
+}
+
 do_deploy() {
     kernel_do_deploy
 }
