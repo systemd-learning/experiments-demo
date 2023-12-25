@@ -18,7 +18,7 @@ KMETA = "kernel-meta"
 KCONF_BSP_AUDIT_LEVEL = "1"
 LINUX_SRC_DIR = "${THISDIR}/../../../../"
 
-LINUX_VERSION ?= "5.10.176"
+LINUX_VERSION ?= "5.10.59"
 PV = "${LINUX_VERSION}"
 PR = "r0"
 
@@ -39,12 +39,14 @@ do_shared_workdir:append () {
 }
 
 python do_unpack:append() {
-    import os
-    curr = os.getcwd()
-    os.chdir(d.getVar('S'))
-    os.system("git am rt-patches/*.patch")
-    os.system("git am android-patches/*.patch")
-    os.chdir(curr)
+    s_dir = d.getVar('S')
+    try:
+        import subprocess
+        subprocess.check_output("git am rt-patches/*.patch", cwd=s_dir, shell=True)
+        subprocess.check_output("git am android-patches/*.patch", cwd=s_dir, shell=True)
+    except subprocess.CalledProcessError as e:
+        print(e.output)
+        bb.fatal('apply patches failed!')
 }
 
 do_deploy() {
