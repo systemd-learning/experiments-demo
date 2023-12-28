@@ -130,7 +130,7 @@ DL_DIR ?= "${DL_DIR}"
 TCMODE = "external-arm"
 EXTERNAL_TOOLCHAIN="${DL_DIR}/${TC_NAME}"
 
-DISTRO_FEATURES:remove = "ptest"
+DISTRO_FEATURES:remove = "ptest sdl"
 PREFERRED_PROVIDER_virtual/kernel = "linux-kernel"
 EOF
 
